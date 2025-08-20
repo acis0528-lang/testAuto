@@ -19,7 +19,8 @@ export class CustomAssertions {
   }
 
   public async toShowNotification(page: Page, expectedText: string, timeout = 15000) {
-    await page.waitForLoadState('load');
+    await page.waitForLoadState('load',{ timeout });
+    await page.waitForTimeout(11000); // Wait for any potential animations to finish
     const notification = page.getByText(expectedText, { exact: true });
     await expect(notification).toBeVisible({ timeout });
   }

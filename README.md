@@ -1,5 +1,8 @@
 ## 🚀 Quick Start
 
+## Project Description
+- sample project for simple automation framework
+
 ### Prerequisites
 
 - **Node.js** (v18 or later)

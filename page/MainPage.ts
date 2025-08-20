@@ -23,6 +23,7 @@ export class MainPage {
     }
 
     async fillSearchBox(itemToBeSearched: any) {
+        await this.page.waitForLoadState('load');
         await this.searchBox.click();
         await this.searchBox.fill(itemToBeSearched);
         await this.searchBox.press('Enter');

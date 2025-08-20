@@ -52,7 +52,6 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'], channel: 'chrome',
         launchOptions: {
-          args: ['--start-maximized'],
           slowMo: process.env.CI ? 500 : 1_000
         } },
       

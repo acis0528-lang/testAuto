@@ -40,6 +40,9 @@ export class ProductDetailsPage {
     }
 
     async clickViewToCartButton() {
+        await this.viewToCartButton.waitFor({ state: 'visible', timeout: 10000 });
+        await this.viewToCartButton.scrollIntoViewIfNeeded();
+        console.log('View Cart button is visible and scrolled into view');
         await this.viewToCartButton.click();
     }
 

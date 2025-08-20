@@ -35,8 +35,20 @@ export class ShoppingCartPage {
     }
 
     async removeProductFromCart() {  
-        await this.removeProductButton.click();
-        await this.page.waitForTimeout(1000); // Wait for the product to be removed
+        try {
+            await this.removeProductButton.waitFor({ state: 'visible', timeout: 10000 });
+            await this.removeProductButton.scrollIntoViewIfNeeded();
+            console.log('Remove button is visible and scrolled into view');
+            // Click the remove button
+            console.log('Attempting to click the remove button')
+            await this.removeProductButton.click();
+            await this.page.waitForTimeout(1000); // Wait for the action to complete
+            console.log('Remove button clicked successfully');
+        } catch (error) {
+            console.error('Error clicking remove button:', error);
+            throw error; // Re-throw the error to ensure the test fails
+        }
+        
     }
 
     async getCompleteItemName() {  
