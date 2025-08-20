@@ -16,9 +16,14 @@
 git clone <repository-url>
 cd testAuto
 
-# Install dependencies for functional testing
+# Install dependencies 
 npm install
 
+# Install CI
+npm ci
+
+# Install Playwright with browser
+npx playwright install-deps
 
 ```
 
@@ -33,8 +38,10 @@ npm run test
 # Run with UI mode (interactive)
 npx playwright test --ui
 
+![alt text](image.png)
+
 # Run in headed mode (see browser)
-npx playwright test --headed
+npx playwright test --headed ( this will open a browser, but make sure you already installed dependencies)
 
 # Run in VSCode
 just click the Testing Icon to Open the Test Explorer

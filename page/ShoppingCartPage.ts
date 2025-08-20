@@ -19,6 +19,10 @@ export class ShoppingCartPage {
         
     }
     async checkIfTotalAmountIsCorrect(isCustomized:boolean, resultsPageAmount: string, productDetailsAmount: string) {
+        await this.page.waitForLoadState('load');
+        await this.page.waitForTimeout(1000); // Wait for any potential animations to finish
+        await this.customAssert.toBeVisible(this.totalAmount);
+        await this.customAssert.toBeVisible(this.addToCartIconCounter);
         const cartTotalAmount = await this.totalAmount.textContent();
         if (isCustomized) {
              await this.customAssert.toBeVisibleWithText(this.totalAmount, productDetailsAmount);

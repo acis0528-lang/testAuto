@@ -22,6 +22,8 @@ export class ProductDetailsPage {
         this.productName = this.page.locator('//div[contains(@class,"productDetailNameRating_product-title")]')
     }
     async setCustomizableFields(customize: boolean, custimizableFields) {
+        await this.page.waitForLoadState('load');
+        await this.page.waitForTimeout(1000);
         if (customize) {
             for (const field of custimizableFields) {
                 await this.customizeFields(field.value).click();

@@ -19,7 +19,7 @@ export class MainPage {
     }
 
     async navigateMainPage() {
-        await this.page.goto('https://www.balsamhill.com/'); // Replace with the actual URL
+        await this.page.goto('https://www.balsamhill.com/',{timeout:25000}); // Replace with the actual URL
     }
 
     async fillSearchBox(itemToBeSearched: any) {
