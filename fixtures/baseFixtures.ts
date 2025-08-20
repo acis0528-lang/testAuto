@@ -15,7 +15,8 @@ type CustomFixtures = {
 };
 
 export const test = base.extend<CustomFixtures>({
-  // Auto-login fixture
+  // navigate to page
+  
  
 
   // Page object fixtures

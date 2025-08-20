@@ -15,7 +15,7 @@ export class ShoppingCartPage {
         this.customAssert = new CustomAssertions();
         this.totalAmount = this.page.locator('//span[contains(@class,"totalAmountCard_total-value")]//child::span[contains(text(),"$")]')
         this.addToCartIconCounter = this.page.locator('//img[contains(@src,"shopping-cart")]//preceding-sibling::span');
-        this.removeProductButton  = this.page.locator('//button[contains(@data-testid,"btn-remove")]');
+        this.removeProductButton  = this.page.locator('//button[contains(@data-testid,"cc-btn-remove")]').first();
         
     }
     async checkIfTotalAmountIsCorrect(isCustomized:boolean, resultsPageAmount: string, productDetailsAmount: string) {
@@ -34,13 +34,16 @@ export class ShoppingCartPage {
         await this.customAssert.toBeVisibleWithText(this.addToCartIconCounter, '1');
     }
 
-    async removeProductFromCart(productName: string) {  
+    async removeProductFromCart() {  
         await this.removeProductButton.click();
         await this.page.waitForTimeout(1000); // Wait for the product to be removed
     }
 
     async getCompleteItemName() {  
         await this.customAssert.toBeVisible(this.removeProductButton);
-        return await this.removeProductButton.getAttribute('aria-label');
+        let ariaLabelOfButton = await this.removeProductButton.getAttribute('aria-label');
+        ariaLabelOfButton = ariaLabelOfButton?.trim() || '';
+        ariaLabelOfButton = ariaLabelOfButton.replace('Remove ', '');
+        return ariaLabelOfButton
     }
 }

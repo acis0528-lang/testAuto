@@ -19,6 +19,7 @@ export class CustomAssertions {
   }
 
   public async toShowNotification(page: Page, expectedText: string, timeout = 15000) {
+    await page.waitForLoadState('load');
     const notification = page.getByText(expectedText, { exact: true });
     await expect(notification).toBeVisible({ timeout });
   }

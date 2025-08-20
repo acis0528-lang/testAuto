@@ -4,6 +4,7 @@
 
 - **Node.js** (v18 or later)
 - **npm** 
+- **VsCode** 
 
 ### Installation
 
@@ -31,6 +32,9 @@ npx playwright test --ui
 
 # Run in headed mode (see browser)
 npx playwright test --headed
+
+# Run in VSCode
+just click the Testing Icon to Open the Test Explorer
 
 ```
 
