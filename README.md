@@ -57,3 +57,56 @@ Select Playwright Test Workflow and run it using main Branch
 - **Chrome Desktop** (Primary)
 - Firefox (Available)
 - Safari/WebKit (Available)
+
+## 📁 Project Structure
+
+```
+├── fixtures/          # Test fixtures and shared configurations
+├── page/             # Page Object Models
+│   ├── MainPage.ts
+│   ├── ProductDetailsPage.ts
+│   └── ShoppingCartPage.ts
+├── tests/            # Test files
+│   └── addToCartScenario.spec.ts
+├── utils/            # Utility functions
+│   └── CustomAssertions.ts
+└── playwright-report/ # Test execution reports
+```
+
+## 📊 Test Reports
+
+After running the tests, you can view the HTML report:
+
+```bash
+npx playwright show-report
+```
+
+The report includes:
+- Test results summary
+- Test execution details
+- Screenshots (if any)
+- Trace viewer for debugging
+
+## 🔍 Debugging Tests
+
+1. Use VS Code Test Explorer:
+   - Click on the Testing icon in the sidebar
+   - Find your test
+   - Click the debug icon next to the test
+
+2. Debug in UI Mode:
+   ```bash
+   npx playwright test --ui
+   ```
+
+## 📝 Writing Tests
+
+Example test structure:
+```typescript
+test('Add to Cart without Customisation', async ({ page }) => {
+    // Test implementation
+});
+```
+
+For more information, visit [Playwright Documentation](https://playwright.dev/docs/intro)
+````
