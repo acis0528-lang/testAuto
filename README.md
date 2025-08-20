@@ -38,13 +38,17 @@ npm run test
 # Run with UI mode (interactive)
 npx playwright test --ui
 
-![alt text](image.png)
+![alt text](image-1.png)
 
 # Run in headed mode (see browser)
 npx playwright test --headed ( this will open a browser, but make sure you already installed dependencies)
 
 # Run in VSCode
 just click the Testing Icon to Open the Test Explorer
+
+#Run in Github Action
+Select Playwright Test Workflow and run it using main Branch
+![alt text](image-2.png)
 
 ```
 
