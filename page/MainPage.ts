@@ -19,7 +19,14 @@ export class MainPage {
     }
 
     async navigateMainPage() {
-        await this.page.goto('https://www.balsamhill.com/',{timeout:25000}); // Replace with the actual URL
+        try {
+            
+            await this.page.goto('https://www.balsamhill.com/', { waitUntil: 'load',timeout:30000 });
+        } catch (error) {
+            await this.page.reload({ waitUntil: 'load', timeout: 30000 });
+            console.error('Error navigating to the main page:', error);
+        }
+        
     }
 
     async fillSearchBox(itemToBeSearched: any) {
