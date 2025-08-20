@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "@playwright/test": "^1.54.2",
+    "@types/node": "^24.3.0",
+    "tsconfig-paths": "^4.2.0"
+  },
+  "scripts": {},
+  "dependencies": {
+    "dotenv": "^17.2.1"
+  }
+}
